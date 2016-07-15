@@ -1,0 +1,16 @@
+name: Statistieken
+version: 2.0
+main: me.BellewaerdeCraft.Main
+commands:
+  statistieken:
+    description: Bekijk je statistieken van een minigame.
+  addwin:
+    description: voegt een Win toe aan je account!
+  addlose:
+    description: voegt een Fail toe aan je account!
+  parkour:
+    description: Basis commando voor te leaven.
+  showstats:
+    description: Toon de statistieken aan een persoon.
+  leave:
+    description: Leave uit een potje Parkour!
