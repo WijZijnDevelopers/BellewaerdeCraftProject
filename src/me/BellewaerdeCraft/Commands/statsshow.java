@@ -28,26 +28,33 @@ public class statsshow implements CommandExecutor {
 		
 	}
 	
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] arguments) {
-		Player player = (Player) sender;
-		board = Bukkit.getScoreboardManager().getNewScoreboard();
-		Objective objective = board.registerNewObjective("Test", player.getName());
-		objective.setDisplayName(ChatColor.UNDERLINE.BOLD.AQUA + "Parkour Stats");
-		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
-		Score score = objective.getScore(ChatColor.GOLD + "Iceland Wins");
-		score.setScore(stats.getInt(player.getName() + ".IceLandWins"));
+		if(args.length >= 1) {
+			
+			Player player = Bukkit.getPlayer(args[0]);
+			board = Bukkit.getScoreboardManager().getNewScoreboard();
+			Objective objective = board.registerNewObjective("Test", player.getName());
+			objective.setDisplayName(ChatColor.UNDERLINE.BOLD.AQUA + "Parkour Stats");
+			objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 
-		Score score2 = objective.getScore(ChatColor.GOLD + "Iceland Fails");
-		score2.setScore(stats.getInt(player.getName() + ".IceLandFails"));
+			Score score = objective.getScore(ChatColor.GOLD + "Iceland Wins");
+			score.setScore(stats.getInt(player + ".IceLandWins"));
 
-		Score score3 = objective.getScore(ChatColor.GOLD + "Aztec Wins");
-		score3.setScore(stats.getInt(player.getName() + ".AztecWins"));
+			Score score2 = objective.getScore(ChatColor.GOLD + "Iceland Fails");
+			score2.setScore(stats.getInt(player + ".IceLandFails"));
 
-		Score score4 = objective.getScore(ChatColor.GOLD + "Aztec Fails");
-		score4.setScore(stats.getInt(player.getName() + ".AztecFails"));
-		player.setScoreboard(board);
-	    return true;
+			Score score3 = objective.getScore(ChatColor.GOLD + "Aztec Wins");
+			score3.setScore(stats.getInt(player + ".AztecWins"));
+
+			Score score4 = objective.getScore(ChatColor.GOLD + "Aztec Fails");
+			score4.setScore(stats.getInt(player + ".AztecFails"));
+			player.setScoreboard(board);
+			
+		}
+		
+		return true;
+		
 	}
 	
 }

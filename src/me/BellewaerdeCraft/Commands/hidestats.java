@@ -9,9 +9,16 @@ import org.bukkit.entity.Player;
 public class hidestats implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-		Player player = (Player) sender;
-		player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+		
+		if(args.length >= 1) {
+			
+			Player player = Bukkit.getPlayer(args[0]);
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+		
+		}
+		
 		return true;
+		
 	}
 	
 }
