@@ -14,3 +14,4 @@ commands:
     description: Toon de statistieken aan een persoon.
   leave:
     description: Leave uit een potje Parkour!
+  

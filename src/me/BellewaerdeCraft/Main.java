@@ -11,14 +11,23 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scoreboard.DisplaySlot;
+import org.bukkit.scoreboard.Objective;
+import org.bukkit.scoreboard.Score;
+import org.bukkit.scoreboard.Scoreboard;
 
-public class Main extends JavaPlugin{
+import me.BellewaerdeCraft.Commands.hidestats;
+import me.BellewaerdeCraft.Commands.statsshow;
+
+public class Main extends JavaPlugin implements Listener{
 
 	File statistieken;
 	FileConfiguration stats;
 	File config;
 	FileConfiguration con;
+	public Scoreboard board;
 	
 	public void onEnable(){
 
@@ -26,12 +35,17 @@ public class Main extends JavaPlugin{
 		stats = YamlConfiguration.loadConfiguration(statistieken);
 		config = new File(getDataFolder(), "config.yml");
 		con = YamlConfiguration.loadConfiguration(config);
+		getServer().getPluginManager().registerEvents(this, this);
+		getCommand("showstats").setExecutor(new statsshow(board, statistieken, stats));
+		getCommand("hidestats").setExecutor(new hidestats());
 		
 	}
 	
 	public void onDisable(){
 
 	}
+	
+	
 	
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
