@@ -34,6 +34,9 @@ public class statsshow implements CommandExecutor {
 			
 			Player player = Bukkit.getPlayer(args[0]);
 			board = Bukkit.getScoreboardManager().getNewScoreboard();
+			
+			if(player.getWorld().getName().equals("game")) {-
+			
 			Objective objective = board.registerNewObjective("Test", player.getName());
 			objective.setDisplayName(ChatColor.UNDERLINE.BOLD.AQUA + "Parkour Stats");
 			objective.setDisplaySlot(DisplaySlot.SIDEBAR);
@@ -50,6 +53,8 @@ public class statsshow implements CommandExecutor {
 			Score score4 = objective.getScore(ChatColor.GOLD + "Aztec Fails");
 			score4.setScore(stats.getInt(player + ".AztecFails"));
 			player.setScoreboard(board);
+			
+			}
 			
 		}
 		
