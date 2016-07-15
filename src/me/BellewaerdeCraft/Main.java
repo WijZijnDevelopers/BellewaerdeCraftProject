@@ -36,8 +36,8 @@ public class Main extends JavaPlugin implements Listener{
 		config = new File(getDataFolder(), "config.yml");
 		con = YamlConfiguration.loadConfiguration(config);
 		getServer().getPluginManager().registerEvents(this, this);
-		getCommand("showstats").setExecutor(new statsshow(board, statistieken, stats));
-		getCommand("hidestats").setExecutor(new hidestats());
+		getCommand("showscore").setExecutor(new statsshow(board, statistieken, stats));
+		getCommand("hidescore").setExecutor(new hidestats());
 		
 	}
 	

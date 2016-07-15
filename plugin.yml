@@ -14,4 +14,8 @@ commands:
     description: Toon de statistieken aan een persoon.
   leave:
     description: Leave uit een potje Parkour!
+  showscore:
+    description: Toon de statistieken op een scoreboard!
+  hidescore:
+    description: Zet de statistieken op een scoreboard uit!
   
